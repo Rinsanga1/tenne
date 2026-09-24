@@ -1,0 +1,8 @@
+# core.autocrlf=true on this machine would check the shell scripts out with
+# CRLF, and bash fails on the trailing \r. Pin everything to LF.
+* text=auto eol=lf
+
+*.ttf binary
+*.jar binary
+*.db  binary
+*.bmp binary

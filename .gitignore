@@ -1,0 +1,35 @@
+# Secrets. mintkey.sh's header is the authority: leak this and anyone can
+# mint a licence key that tenne.exe accepts.
+license-private.pem
+*.pem
+
+# Koka build cache (3GB at last count) and compiled objects.
+.koka/
+build/
+*.obj
+*.exe
+*.dll
+
+# Databases: runtime state, backups, and SQLite's sidecar files.
+*.db
+*.db-shm
+*.db-wal
+*.db.pre-restore-*
+backups/
+tennetmp/
+
+# Shippable build output.
+dist/
+
+# Scratch: test logs, rendered BMPs, throwaway databases. Listed as `out/*`
+# rather than `out/` so real.db can be re-included -- git cannot un-ignore a
+# file whose parent directory is excluded.
+out/*
+!out/real.db
+
+# TLC dumps a state directory per run; 168 of them reached 3.3GB once.
+# verify.sh rm -rf's this every time.
+docs/tla/states/
+
+# Agent loop state.
+.ralph/
